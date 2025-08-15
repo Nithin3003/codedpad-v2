@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodedPad - Secure Online Notepad</title>
+    <meta
+      name="description"
+      content="Secure, encrypted online notepad. Save your notes with password protection. No registration required."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ url_for('static', filename='style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      <div class="floating-shape shape-3"></div>
+      <div class="floating-shape shape-4"></div>
+      <div class="floating-shape shape-5"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <i class="fas fa-shield-alt"></i>
+          <span>CodedPad</span>
+        </div>
+        <div class="nav-links">
+          <a href="#home" class="nav-link active" data-section="home">
+            <i class="fas fa-home"></i> <span>Home</span>
+          </a>
+          <a href="#feedback" class="nav-link" data-section="feedback">
+            <i class="fas fa-comment-dots"></i> <span>Feedback</span>
+          </a>
+          <a href="#admin" class="nav-link" data-section="admin">
+            <i class="fas fa-user-shield"></i> <span>Admin</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+      <!-- Home Section -->
+      <section id="home" class="section active">
+        <div class="hero-section">
+          <div class="hero-content">
+            <!-- Main Title Outside Form -->
+            <div class="main-title">
+              <h1 class="brand-title">
+                <i class="fas fa-shield-alt brand-icon"></i>
+                <span class="gradient-text">CodedPad</span> - Secure Notes
+              </h1>
+            </div>
+
+            <!-- Auth Section -->
+            <div class="auth-section">
+              <div class="auth-container">
+                <div class="auth-header">
+                  <h2><i class="fas fa-lock"></i> Enter Your Password</h2>
+                  <p>
+                    <i class="fas fa-info-circle"></i> Use your secret password
+                    to access your encrypted notepad
+                  </p>
+                </div>
+                <form id="authForm" class="auth-form">
+                  <div class="input-group">
+                    <i class="fas fa-key"></i>
+                    <input
+                      type="password"
+                      id="passwordInput"
+                      placeholder="Enter your secure password"
+                      required
+                    />
+                    <button
+                      type="button"
+                      id="togglePassword"
+                      class="toggle-password"
+                    >
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                  <button type="submit" class="auth-btn">
+                    <span>Access My Notes</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </form>
+                <div class="auth-info">
+                  <p>
+                    <i class="fas fa-user-plus"></i> New user? Just enter any
+                    password to create your secure notepad
+                  </p>
+                  <p>
+                    <i class="fas fa-key"></i> Returning user? Enter your
+                    existing password to access your notes
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section">
+              <div class="features-header">
+                <h2><i class="fas fa-star"></i> Why Choose CodedPad?</h2>
+                <p>
+                  <i class="fas fa-shield-alt"></i> Advanced features for secure
+                  and efficient note-taking
+                </p>
+              </div>
+              <div class="features-grid">
+                <div class="feature-card">
+                  <i class="fas fa-shield-halved"></i>
+                  <h3>Military-Grade Encryption</h3>
+                  <p>
+                    AES-256 encryption protects your notes with bank-level
+                    security
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-keyboard"></i>
+                  <h3>Smart Shortcuts</h3>
+                  <p>
+                    Alt+C to copy all, Ctrl+S to save - productivity at your
+                    fingertips
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-floppy-disk"></i>
+                  <h3>Auto-Save</h3>
+                  <p>
+                    Never lose your work with intelligent auto-save every 30
+                    seconds
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-user-ninja"></i>
+                  <h3>Zero-Knowledge</h3>
+                  <p>
+                    No accounts, no tracking - completely anonymous and private
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-bolt"></i>
+                  <h3>Lightning Fast</h3>
+                  <p>
+                    Instant loading, real-time saving, optimized for performance
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-mobile-screen"></i>
+                  <h3>Cross-Platform</h3>
+                  <p>
+                    Perfect experience on desktop, tablet, and mobile devices
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-clock-rotate-left"></i>
+                  <h3>Session Recovery</h3>
+                  <p>Automatic recovery if you accidentally close or refresh</p>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-palette"></i>
+                  <h3>Clean Interface</h3>
+                  <p>Distraction-free design that focuses on your content</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Editor Section -->
+      <section id="editor" class="section">
+        <div class="editor-container">
+          <div class="editor-main">
+            <div class="editor-sidebar">
+              <div class="editor-info">
+                <h3><i class="fas fa-circle-check"></i> Status</h3>
+                <div class="status-indicator ready" id="saveStatus">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Ready</span>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-save"></i>
+                  <span>Last saved: <span id="lastSaved">Never</span></span>
+                </div>
+              </div>
+
+              <div class="shortcuts-section">
+                <h4><i class="fas fa-keyboard"></i> Shortcuts</h4>
+                <div class="shortcut-list">
+                  <div class="shortcut-item">
+                    <span class="key-combo">Alt + C</span>
+                    <span class="key-desc">Copy All</span>
+                  </div>
+                  <div class="shortcut-item">
+                    <span class="key-combo">Ctrl + S</span>
+                    <span class="key-desc">Save Notes</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="auto-save-section">
+                <h4><i class="fas fa-clock"></i> Auto-Save</h4>
+                <div class="auto-save-controls">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="autoSaveToggle" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span>Every 30 seconds</span>
+                </div>
+              </div>
+
+              <div class="security-section">
+                <h4><i class="fas fa-shield-alt"></i> Security</h4>
+                <div class="info-item">
+                  <i class="fas fa-lock"></i>
+                  <span>Encryption: Active</span>
+                </div>
+                <button class="sidebar-btn" onclick="changePassword()">
+                  <i class="fas fa-key"></i>
+                  Change Password
+                </button>
+                <button
+                  class="sidebar-btn"
+                  onclick="goToHome()"
+                  style="
+                    margin-top: var(--space-sm);
+                    background: var(--accent-color);
+                  "
+                >
+                  <i class="fas fa-home"></i>
+                  Go to Home
+                </button>
+              </div>
+            </div>
+            <div class="editor-content">
+              <!-- Editor Area -->
+              <div class="editor-wrapper">
+                <textarea
+                  id="noteContent"
+                  placeholder="Start typing your secure notes here...
+
+Tips:
+• Your notes are automatically saved every 30 seconds
+• Use Alt+C to copy all content quickly
+• Use Ctrl+S to save immediately
+• All data is encrypted and secure
+                  "
+                  spellcheck="true"
+                ></textarea>
+              </div>
+
+              <!-- Find & Replace Panel -->
+              <div class="find-replace-panel" id="findReplacePanel">
+                <div class="find-replace-content">
+                  <div class="find-section">
+                    <label for="findInput">Find:</label>
+                    <input
+                      type="text"
+                      id="findInput"
+                      placeholder="Search text..."
+                    />
+                    <button class="find-btn" id="findNextBtn">
+                      <i class="fas fa-arrow-down"></i>
+                    </button>
+                    <button class="find-btn" id="findPrevBtn">
+                      <i class="fas fa-arrow-up"></i>
+                    </button>
+                  </div>
+                  <div class="replace-section">
+                    <label for="replaceInput">Replace:</label>
+                    <input
+                      type="text"
+                      id="replaceInput"
+                      placeholder="Replace with..."
+                    />
+                    <button class="replace-btn" id="replaceBtn">Replace</button>
+                    <button class="replace-btn" id="replaceAllBtn">
+                      Replace All
+                    </button>
+                  </div>
+                  <button class="close-find-btn" id="closeFindBtn">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="find-stats" id="findStats"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feedback Section -->
+      <section id="feedback" class="section">
+        <div class="feedback-container">
+          <div class="feedback-header">
+            <h2>Share Your Feedback</h2>
+            <p>
+              Help us improve CodedPad by sharing your thoughts and suggestions
+            </p>
+          </div>
+
+          <form id="feedbackForm" class="feedback-form">
+            <div class="form-row">
+              <div class="input-group input-with-label">
+                <label for="feedbackName">Your Name</label>
+                <i class="fas fa-user input-icon"></i>
+                <input
+                  type="text"
+                  id="feedbackName"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="input-group input-with-label">
+                <label for="feedbackEmail">Email Address</label>
+                <i class="fas fa-envelope input-icon"></i>
+                <input
+                  type="email"
+                  id="feedbackEmail"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="input-group input-with-label">
+              <label for="feedbackMessage">Your Feedback</label>
+              <i class="fas fa-comment textarea-icon"></i>
+              <textarea
+                id="feedbackMessage"
+                placeholder="Tell us what you think about CodedPad..."
+                required
+                rows="6"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <span>Send Feedback</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Admin Section -->
+      <section id="admin" class="section">
+        <div class="admin-container">
+          <!-- Admin Login -->
+          <div id="adminLogin" class="admin-login">
+            <div class="admin-header">
+              <h2><i class="fas fa-user-shield"></i> Admin Access</h2>
+              <p>Enter admin credentials to access the dashboard</p>
+            </div>
+            <form id="adminLoginForm" class="admin-form">
+              <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  id="adminUsername"
+                  placeholder="Admin Username"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input
+                  type="password"
+                  id="adminPassword"
+                  placeholder="Admin Password"
+                  required
+                />
+              </div>
+              <button type="submit" class="admin-btn">
+                <i class="fas fa-sign-in-alt"></i>
+                Login to Dashboard
+              </button>
+            </form>
+          </div>
+
+          <!-- Admin Dashboard -->
+          <div
+            id="adminDashboard"
+            class="admin-dashboard"
+            style="display: none"
+          >
+            <div class="dashboard-header">
+              <h2><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h2>
+              <div class="admin-actions">
+                <span class="admin-welcome"
+                  >Welcome, <strong>Nithin</strong></span
+                >
+                <button class="admin-btn secondary" onclick="logoutAdmin()">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+              </div>
+            </div>
+
+            <div class="dashboard-stats">
+              <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <div class="stat-info">
+                  <h3 id="totalUsers">0</h3>
+                  <p>Total Users</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <i class="fas fa-comments"></i>
+                <div class="stat-info">
+                  <h3 id="totalFeedback">0</h3>
+                  <p>Feedback Received</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <i class="fas fa-edit"></i>
+                <div class="stat-info">
+                  <h3 id="activeNotes">0</h3>
+                  <p>Active Notes</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="dashboard-tabs">
+              <button class="tab-btn active" onclick="showTab('users')">
+                <i class="fas fa-users"></i> User Data
+              </button>
+              <button class="tab-btn" onclick="showTab('feedback')">
+                <i class="fas fa-comments"></i> Feedback
+              </button>
+            </div>
+
+            <!-- Users Tab -->
+            <div id="usersTab" class="tab-content active">
+              <div class="table-header">
+                <h3><i class="fas fa-users"></i> User Data Management</h3>
+                <div class="table-actions">
+                  <button class="admin-btn" onclick="refreshUserData()">
+                    <i class="fas fa-sync"></i> Refresh
+                  </button>
+                </div>
+              </div>
+
+              <!-- Info Section -->
+              <div class="info-section">
+                <p class="data-info">
+                  <i class="fas fa-info-circle"></i>
+                  Showing recent 50 users from MongoDB collections
+                </p>
+              </div>
+
+              <div class="table-container">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>User #</th>
+                      <th>Stored Data</th>
+                      <th>Last Modified</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="usersTableBody">
+                    <!-- Dynamic content will be loaded here -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Load More Controls -->
+              <div
+                class="table-footer"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  margin-top: var(--space-md);
+                "
+              >
+                <div id="usersShownCount" style="color: var(--text-secondary)">
+                  Showing 0 users
+                </div>
+                <button
+                  class="admin-btn"
+                  id="loadMoreUsersBtn"
+                  style="min-width: 140px"
+                >
+                  <i class="fas fa-plus"></i> Load More
+                </button>
+              </div>
+            </div>
+
+            <!-- Feedback Tab -->
+            <div id="feedbackTab" class="tab-content">
+              <div class="table-header">
+                <h3><i class="fas fa-comments"></i> Feedback Management</h3>
+                <div class="table-actions">
+                  <button class="admin-btn" onclick="refreshFeedback()">
+                    <i class="fas fa-sync"></i> Refresh
+                  </button>
+                  <button
+                    class="admin-btn secondary"
+                    onclick="exportFeedback()"
+                  >
+                    <i class="fas fa-download"></i> Export
+                  </button>
+                </div>
+              </div>
+
+              <!-- Info Section -->
+              <div class="info-section">
+                <p class="data-info">
+                  <i class="fas fa-info-circle"></i>
+                  Showing recent 50 feedback entries from MongoDB collections
+                </p>
+              </div>
+
+              <div class="table-container">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Feedback</th>
+                      <th>Date</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="feedbackTableBody">
+                    <!-- Dynamic content -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+      <div class="loading-spinner">
+        <div class="spinner">
+          <i class="fas fa-sync-alt fa-spin"></i>
+        </div>
+        <p><i class="fas fa-clock"></i> Processing your request...</p>
+      </div>
+    </div>
+
+    <!-- Modal for Password Change -->
+    <div id="passwordModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Change Password</h3>
+          <button class="modal-close" id="closeModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Enter your new password to secure your notes:</p>
+          <div class="input-group">
+            <i class="fas fa-key"></i>
+            <input
+              type="password"
+              id="newPasswordInput"
+              placeholder="Enter new password"
+              required
+            />
+            <button
+              type="button"
+              class="toggle-password"
+              id="toggleNewPassword"
+            >
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <div class="modal-actions">
+            <button class="modal-btn secondary" id="cancelPasswordChange">
+              <i class="fas fa-times"></i> <span>Cancel</span>
+            </button>
+            <button class="modal-btn primary" id="confirmPasswordChange">
+              <i class="fas fa-check"></i> <span>Change Password</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-main">
+          <p>
+            <i class="fas fa-shield-alt"></i> &copy; 2025 CodedPad. Your privacy
+            is our priority.
+          </p>
+          <p>
+            <i class="fas fa-heart"></i> Built with love for secure note-taking
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Axios for HTTP requests -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios@1.6.8/dist/axios.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
