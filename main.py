@@ -15,7 +15,7 @@ import re
 app = Flask(__name__) 
 
 # Official hosted MongoDB
-os.environ["url"] = "mongodb+srv://msnithin84:Nithin@cluster0.wob2cfi.mongodb.net/coded"
+
 
 app.config['MONGO_URI'] = os.environ.get('url')
 app.config['SECRET_KEY'] = token_urlsafe(32)
@@ -638,3 +638,4 @@ def handle_exception(e):
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)
     
+
